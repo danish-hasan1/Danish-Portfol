@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danish Hasan - Portfolio</title>
+    <meta name="description" content="Personal portfolio of Danish Hasan, showcasing professional work and personal hobbies like writing, swimming, reading, and fitness.">
+    
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google Fonts for Modern Styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+</head>
+<body>
+    <!-- Background Depth Typography Effect -->
+    <div class="bg-typography" aria-hidden="true" data-speed="0.8">DANISH HASAN</div>
+
+    <!-- Custom Cursor Elements -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"><span class="cursor-text"></span></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="#home"><img src="Assests/Logo.png" alt="DH Logo" class="logo-img"></a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#footprint">Global Footprint</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-redesign section-padding">
+            <!-- Foreground Content Layer -->
+            <div class="hero-fg-layer parallax-fg">
+                
+                <!-- Large Left Title & Info -->
+                <div class="hero-left-column">
+                    <h1 class="huge-display-title">
+                        DRIVING<br/>
+                        REVENUE &<br/>
+                        DELIVERY
+                    </h1>
+                    <p class="hero-subline">
+                        Strategic operations that connect, inspire, and consistently generate over €5M+ annually.
+                    </p>
+                    
+                    <a href="#contact" class="hero-pill-btn">
+                        Get in touch 
+                        <span class="arrow">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </span>
+                    </a>
+                    
+                    <div class="hero-stats-row">
+                        <div class="stat-blurb">
+                            <h4>500+ CONSULTANTS PLACED</h4>
+                            <p>Managing active enterprise professionals across IT, Engineering & Life Sciences.</p>
+                        </div>
+                        <div class="stat-blurb">
+                            <h4>13+ YEARS OF EXPERIENCE</h4>
+                            <p>Blending strategic operations and matrix leadership to build resilient staffing divisions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-bottom-info">
+                        <p>I'm a business unit head helping organizations shape scalable, high-margin talent delivery models across global markets.</p>
+                        <div class="hero-social-links">
+                            <a href="https://linkedin.com/in/syeddanishhasan" target="_blank" aria-label="LinkedIn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                            </a>
+                            <a href="https://github.com" target="_blank" aria-label="GitHub">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            </a>
+                            <a href="mailto:syeddanishhasan@outlook.com" aria-label="Email">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Portrait Image -->
+                <div class="hero-center-portrait parallax-bg">
+                    <img src="Assests/Official.png" alt="Syed Danish Hasan" class="portrait-img floating-element">
+                </div>
+
+            </div>
+
+            <!-- Bottom Brands Marquee -->
+            <div class="hero-bottom-marquee">
+                <div class="marquee-track">
+                    <div class="marquee-item"><span></span> Next-Link Group</div>
+                    <div class="marquee-item"><span></span> Latent Bridge</div>
+                    <div class="marquee-item"><span></span> Lord Securator</div>
+                    <div class="marquee-item"><span></span> Bluezone Electro</div>
+                    <!-- Duplicate for infinite effect -->
+                    <div class="marquee-item"><span></span> Next-Link Group</div>
+                    <div class="marquee-item"><span></span> Latent Bridge</div>
+                    <div class="marquee-item"><span></span> Lord Securator</div>
+                    <div class="marquee-item"><span></span> Bluezone Electro</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Global Footprint Section (Interactive Map) -->
+        <section id="footprint" class="footprint section-padding">
+            <div class="section-header fade-target">
+                <h2>Global Footprint</h2>
+                <div class="header-line"></div>
+                <p class="section-desc">Consultant placements and operational geographies across the globe.</p>
+            </div>
+            <div class="map-container glass-card fade-target">
+                <div id="world-map"></div>
+            </div>
+        </section>
+
+        <!-- About / Professional Section -->
+        <!-- About / Professional Section (Horizontal Scrollytelling) -->
+        <section id="about" class="about-horizontal-wrapper">
+            <div class="about-horizontal-container">
+                
+                <!-- Custom Animated Horizontal Scrollbar -->
+                <div class="horizontal-scroll-progress"></div>
+
+                <!-- Panel 1: Bento About Introduction -->
+                <div class="h-panel bento-about-panel">
+                    <div class="bento-split-container">
+                        <!-- Left Image Side -->
+                        <div class="bento-left">
+                            <img src="Assests/Nego.png" alt="Syed Danish Hasan" class="bento-portrait">
+                        </div>
+                        
+                        <!-- Right Stats Stack Side -->
+                        <div class="bento-right">
+                            <div class="bento-stat-item">
+                                <h3 class="bento-stat-title text-gradient">€5M+</h3>
+                                <p class="bento-stat-label">ANNUAL REVENUE PORTFOLIO</p>
+                            </div>
+                            <div class="bento-stat-item">
+                                <h3 class="bento-stat-title text-gradient">500+</h3>
+                                <p class="bento-stat-label">DEPLOYED CONSULTANTS</p>
+                            </div>
+                            <div class="bento-stat-item">
+                                <h3 class="bento-stat-title text-gradient">93%</h3>
+                                <p class="bento-stat-label">CLIENT SATISFACTION (2025 SURVEY)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 2: Executive Profile -->
+                <div class="h-panel">
+                    <div class="bento-item profile-card glass-card">
+                        <h3>Executive Profile</h3>
+                        <p>Business Operations leader with 13+ years of experience managing revenue-generating talent service units within global RPO/MSP/LSP environments. Currently accountable for a €5M annual portfolio comprising 135 deployed consultants across Europe, APAC, and LATAM.</p>
+                        <p>Operate as business unit head with responsibility across margin governance, SLA performance, workforce forecasting, billing alignment, client governance, and matrix team leadership. Recognised for maintaining 100% client retention while improving productivity (+125%) and protecting revenue exposure.</p>
+                    </div>
+                </div>
+
+                <!-- Panel 3: Core Competencies -->
+                <div class="h-panel">
+                    <div class="bento-item competencies-card glass-card">
+                        <h3>Core Leadership Competencies</h3>
+                        <div class="skills">
+                            <span class="skill-tag">P&L Oversight</span>
+                            <span class="skill-tag">Margin Governance</span>
+                            <span class="skill-tag">SLA Compliance</span>
+                            <span class="skill-tag">Workforce Forecasting</span>
+                            <span class="skill-tag">AI-Enabled Productivity</span>
+                            <span class="skill-tag">Client Executive Engagement</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 4: Image & Metrics Dashboard -->
+                <div class="h-panel split-panel">
+                    <div class="bento-item image-card glass-card">
+                        <img src="Assests/Business.png" alt="Danish Professional" class="bento-img">
+                    </div>
+                    <div class="bento-item metrics-card glass-card" style="display: flex; flex-direction: column; justify-content: center; gap: 2rem;">
+                        <div class="metric">
+                            <span class="metric-value text-gradient" style="font-size: 2rem;">MBA</span>
+                            <span class="metric-label" style="font-size: 1.1rem; line-height: 1.4;">Business Administration (HR & Banking)<br>2024</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value text-gradient" style="font-size: 2rem;">BEng</span>
+                            <span class="metric-label" style="font-size: 1.1rem; line-height: 1.4;">Mechanical Engineering<br>2012</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience section-padding">
+             <div class="section-header fade-target">
+                <h2>Experience</h2>
+                <div class="header-line"></div>
+                <p class="section-desc">My professional journey bridging strategic leadership, operations, and talent delivery.</p>
+            </div>
+            
+            <div class="exp-tabs-container fade-target">
+                <!-- Left Menu (Tabs) -->
+                <div class="exp-tabs-menu glass-card">
+                    <button class="exp-tab active" data-target="panel-nextlink">Next-Link Group</button>
+                    <button class="exp-tab" data-target="panel-latentbridge">Latent Bridge</button>
+                    <button class="exp-tab" data-target="panel-lordsecurator">Lord Securator</button>
+                    <button class="exp-tab" data-target="panel-bluezone">Bluezone Electro</button>
+                </div>
+
+                <!-- Right Content (Panels) -->
+                <div class="exp-panels glass-card">
+                    <!-- Panel 1 -->
+                    <div class="exp-panel active" id="panel-nextlink">
+                        <h3>Interim Director <span class="accent-text">@ Next-Link Group</span></h3>
+                        <span class="exp-date">Jul 2022 - Present</span>
+                        <p>Global Delivery And Account Operations. Leading a €5M annual enterprise portfolio with 135 active consultants. Sustaining 100% client retention and increasing recruiter productivity by 125% via AI-enabled process redesign.</p>
+                        <ul class="exp-bullets">
+                            <li>Oversaw margin governance within the €120–€280/day range.</li>
+                            <li>Ensured SLA performance maintained between 90–93%.</li>
+                            <li>Directed workforce forecasting and zero-bench deployment model.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Panel 2 -->
+                    <div class="exp-panel" id="panel-latentbridge">
+                        <h3>Talent Acquisition Manager <span class="accent-text">@ Latent Bridge Pvt Ltd</span></h3>
+                        <span class="exp-date">Mar 2022 - Jul 2022</span>
+                        <p>Managed talent acquisition initiatives bridging UK and India operations, establishing frameworks for efficient candidate sourcing and selection.</p>
+                        <ul class="exp-bullets">
+                            <li>Streamlined cross-border recruitment strategies.</li>
+                            <li>Implemented data-driven candidate tracking methodologies.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Panel 3 -->
+                    <div class="exp-panel" id="panel-lordsecurator">
+                        <h3>Senior Manager (TA) <span class="accent-text">@ Lord Securator</span></h3>
+                        <span class="exp-date">Jan 2019 - Mar 2022</span>
+                        <p>Spearheaded talent strategies, focusing on SLA predictability, managing high-volume recruitment, and directly overseeing multiple client accounts across India.</p>
+                        <ul class="exp-bullets">
+                            <li>Maintained strict adherence to client SLAs during high-volume spikes.</li>
+                            <li>Mentored junior recruiters to improve placement ratios.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Panel 4 -->
+                    <div class="exp-panel" id="panel-bluezone">
+                        <h3>Team Lead <span class="accent-text">@ Bluezone Electro</span></h3>
+                        <span class="exp-date">Sep 2016 - Dec 2018</span>
+                        <p>Led operational teams for projects spanning the UAE and India. Ensured smooth delivery operations, performance tracking, and team supervision.</p>
+                        <ul class="exp-bullets">
+                            <li>Coordinated dual-region delivery operations.</li>
+                            <li>Established standard operating procedures for team output tracking.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects / Work Section -->
+        <section id="projects" class="projects section-padding">
+             <div class="section-header fade-target">
+                <h2>AI & Tech Projects</h2>
+                <div class="header-line"></div>
+                <p class="section-desc">Innovative tools developed to streamline recruitment operations.</p>
+            </div>
+            <div class="projects-container fade-target">
+                <!-- Recruiter's Diary -->
+                <div class="project-card glass-card">
+                    <div class="project-info">
+                        <h3>Recruiter’s Diary</h3>
+                        <p>AI-enabled recruitment workflow hub designed to replace spreadsheet-based tracking. Enables quick capture of roles, submissions, and pipeline updates with conversational analytics through a built-in agent.</p>
+                        <div class="project-tags">
+                            <span>AI Workflow</span>
+                            <span>Analytics</span>
+                        </div>
+                        <div class="project-actions" style="margin-top: 2rem; display: flex; gap: 1rem;">
+                            <button class="btn btn-primary btn-case-study" data-modal="diary-modal">View Case Study</button>
+                            <a href="https://github.com/dhasan111-hiringdock/Recruiter-s-Diary" target="_blank" class="btn btn-secondary">GitHub</a>
+                        </div>
+                    </div>
+                    <div class="project-image-wrapper">
+                         <!-- Fallback layout visual since no specific software images exist -->
+                         <img src="Assests/Desk.png" alt="Workspace and Projects" class="project-img">
+                    </div>
+                </div>
+
+                <!-- EBES -->
+                <div class="project-card glass-card">
+                    <div class="project-info">
+                        <h3>EBES (Employee Best Effort Score)</h3>
+                        <p>An AI-assisted productivity framework designed to evaluate recruiter effort, performance signals, and activity patterns across hiring workflows to provide a structured performance scoring system.</p>
+                        <div class="project-tags">
+                            <span>Productivity</span>
+                            <span>AI Framework</span>
+                        </div>
+                        <div class="project-actions" style="margin-top: 2rem; display: flex; gap: 1rem;">
+                            <button class="btn btn-primary btn-case-study" data-modal="ebes-modal">View Case Study</button>
+                            <a href="https://github.com/dhasan111-hiringdock/EBES---Employee-Best-Effort-Score" target="_blank" class="btn btn-secondary">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Automater -->
+                <div class="project-card glass-card">
+                    <div class="project-info">
+                        <h3>Automater</h3>
+                        <p>AI-powered recruitment automation toolkit built to streamline repetitive hiring tasks such as candidate sourcing workflows, data tracking, and operational coordination across recruitment pipelines.</p>
+                        <div class="project-tags">
+                            <span>Automation</span>
+                            <span>Data Tracking</span>
+                        </div>
+                        <div class="project-actions" style="margin-top: 2rem; display: flex; gap: 1rem;">
+                            <button class="btn btn-primary btn-case-study" data-modal="automater-modal">View Case Study</button>
+                            <a href="https://github.com/dhasan111-hiringdock/Automater" target="_blank" class="btn btn-secondary">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials section-padding">
+            <div class="section-header fade-target">
+                <h2>Testimonials</h2>
+                <div class="header-line"></div>
+                <p class="section-desc">Professional recommendations and endorsements from colleagues and leadership.</p>
+            </div>
+            
+            <div class="marquee-container">
+                <div class="marquee-content">
+                    <span>LEADERSHIP</span><span class="dot">•</span>
+                    <span>TALENT ACQUISITION</span><span class="dot">•</span>
+                    <span>AI EFFICIENCY</span><span class="dot">•</span>
+                    <span>GLOBAL DELIVERY</span><span class="dot">•</span>
+                    <span>SLA GOVERNANCE</span><span class="dot">•</span>
+                    <!-- Duplicate for infinite seamless scroll -->
+                    <span aria-hidden="true">LEADERSHIP</span><span class="dot" aria-hidden="true">•</span>
+                    <span aria-hidden="true">TALENT ACQUISITION</span><span class="dot" aria-hidden="true">•</span>
+                    <span aria-hidden="true">AI EFFICIENCY</span><span class="dot" aria-hidden="true">•</span>
+                    <span aria-hidden="true">GLOBAL DELIVERY</span><span class="dot" aria-hidden="true">•</span>
+                    <span aria-hidden="true">SLA GOVERNANCE</span><span class="dot" aria-hidden="true">•</span>
+                </div>
+            </div>
+
+            <div class="testimonials-carousel fade-target">
+                <div class="testimonials-track">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card glass-card delay-1">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">I've been working with Danish for the past 3+ years and it's honestly been a great experience. He's one of those leaders who really knows how to bring the best out of his team while always keeping things supportive and positive. Danish is an exceptional team lead with strong leadership skills and a deep understanding of recruitment. He's always willing to guide, share his knowledge, and help the team grow. No matter how challenging things get, he stays calm, focused, and always finds a way to move things forward.</p>
+                    <div class="testimonial-author">
+                        <strong>Naz Lingam</strong>
+                        <span>Head of Talent | Technology Recruitment Leader</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card glass-card delay-2">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">I had the pleasure of working with Danish, who is an outstanding Talent Solutions Lead and a true people leader. Danish brings together perseverance, empathy, professionalism, and strong leadership in everything he does. What truly sets him apart is his heart — his genuine care for people, his ability to listen, and the trust he builds within his team.</p>
+                    <div class="testimonial-author">
+                        <strong>Natalia Martinez</strong>
+                        <span>Key Accounts Lead | Vendor & Partner Management</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card glass-card delay-3">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">It's been a privilege to work under Danish's leadership as my Team Lead at NextLink for nearly two years. From day one, he has exemplified what true leadership looks like—not through authority, but through perseverance, patience, and an unwavering commitment to excellence. What sets Danish apart is his innate ability to guide teams with calm confidence, especially during high-pressure moments.</p>
+                    <div class="testimonial-author">
+                        <strong>Adela Labrador</strong>
+                        <span>Global Senior IT Talent Acquisition // Business Manager</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card glass-card delay-4">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">I had the pleasure of working alongside Danish Hasan at NextLink from 2021 to 2024, where he consistently stood out as a high-impact leader. Danish led the Spanish team with remarkable effectiveness, managing a group of over 10 recruiters and consistently delivering results in a fast-paced, competitive environment. His ability to build and maintain strong client relationships was exceptional.</p>
+                    <div class="testimonial-author">
+                        <strong>Andreas Zinonos</strong>
+                        <span>HR Talent Acquisition Specialist</span>
+                    </div>
+                </div>
+
+                 <!-- Testimonial 5 -->
+                 <div class="testimonial-card glass-card delay-1">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">Danish Hassan, Hard core and excellent Recruitment professional with Indepth knowledge of recruitment Matrix. Solid Hands-in presenting the data to the management on hiring. Any requirement regardless it is new or niche or In-demand technology he goes for it and fulfills the requirement. I highly recommend Danish as a recruitment strategist.</p>
+                    <div class="testimonial-author">
+                        <strong>Jagan Mohan Rao A.</strong>
+                        <span>HR Manager | L&D Consultant</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hobbies Section -->
+        <section id="hobbies" class="hobbies section-padding">
+             <div class="section-header fade-target">
+                <h2>Beyond the Screen</h2>
+                <div class="header-line"></div>
+                <p class="section-desc">What fuels my energy and creativity outside of work.</p>
+            </div>
+            
+            <div class="hobbies-layout">
+                <div class="hobbies-visual glass-card fade-target">
+                    <!-- Using Casual image -->
+                    <img src="Assests/Casual.png" alt="Casual Lifestyle" class="hobbies-img">
+                </div>
+                <div class="hobbies-grid">
+                    <div class="hobby-card fade-target delay-1">
+                        <div class="hobby-icon">✍️</div>
+                        <h4>Writing</h4>
+                        <p>Articulating thoughts, crafting narratives, and maintaining a journal to clarify the mind and share ideas.</p>
+                    </div>
+                    <div class="hobby-card fade-target delay-2">
+                        <div class="hobby-icon">🏊‍♂️</div>
+                        <h4>Swimming</h4>
+                        <p>Finding flow, maintaining cardiovascular health, and building endurance through regular aquatic sessions.</p>
+                    </div>
+                    <div class="hobby-card fade-target delay-3">
+                        <div class="hobby-icon">📚</div>
+                        <h4>Reading</h4>
+                        <p>Constantly expanding my horizons through literature, philosophy, and industry-leading non-fiction.</p>
+                    </div>
+                    <div class="hobby-card fade-target delay-4">
+                        <div class="hobby-icon">🏋️‍♂️</div>
+                        <h4>Fitness</h4>
+                        <p>Building discipline, strength, and physical resilience to stay sharp in all aspects of personal and professional life.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section-padding">
+            <div class="section-header fade-target">
+                <h2>Get in Touch</h2>
+                <div class="header-line"></div>
+                <p class="section-desc">Looking to discuss operations, delivery, or potential collaborations? Let's connect.</p>
+            </div>
+            
+            <div class="contact-container fade-target">
+                <form id="contact-form" class="glass-card" action="mailto:syeddanishhasan@outlook.com" method="GET" enctype="text/plain">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="subject" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="cc" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="body" rows="5" placeholder="How can I help you?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Project Modal Structures -->
+    <div id="diary-modal" class="modal-overlay">
+        <div class="modal-content glass-card">
+            <span class="close-modal">&times;</span>
+            <h2>Recruiter’s Diary</h2>
+            <div class="modal-body">
+                <h4>Problem Space</h4>
+                <p>Recruiters often rely on scattered, manual spreadsheets to track roles, submissions, and pipeline flow, leading to data fragmentation and inefficiency.</p>
+                <h4>Solution</h4>
+                <p>An AI-enabled workflow hub that replaces manual spreadsheets. It enables quick capture of pipeline updates and tracks lifecycle metrics in a centralized dashboard featuring a built-in conversational analytics agent.</p>
+                <h4>Impact</h4>
+                <p>Standardized pipeline reporting, drastically reduced administrative overhead for recruiters, and provided leadership with instant, conversational visibility into hiring velocity and bottlenecks.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="ebes-modal" class="modal-overlay">
+        <div class="modal-content glass-card">
+            <span class="close-modal">&times;</span>
+            <h2>EBES (Employee Best Effort Score)</h2>
+            <div class="modal-body">
+                <h4>Problem Space</h4>
+                <p>Evaluating recruiter performance purely based on hires often ignores the upstream effort and quality of daily activities, making it difficult to coach or predict long-term success.</p>
+                <h4>Solution</h4>
+                <p>An AI-assisted framework that evaluates individual effort, performance signals, and activity patterns across the entire hiring workflow, outputting a structured behavioral and effort scoring system.</p>
+                <h4>Impact</h4>
+                <p>Shifted performance management from reactive (hire count) to proactive (effort quality). Enhanced leadership's ability to identify training needs early and recognize consistent high-effort contributors before placements occurred.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="automater-modal" class="modal-overlay">
+        <div class="modal-content glass-card">
+            <span class="close-modal">&times;</span>
+            <h2>Automater</h2>
+            <div class="modal-body">
+                <h4>Problem Space</h4>
+                <p>Top-of-funnel candidate sourcing and follow-up communications are highly repetitive tasks that drain strategic recruiter time and slow down time-to-fill metrics.</p>
+                <h4>Solution</h4>
+                <p>An AI-powered automation toolkit designed specifically for talent acquisition workflows. It automates initial sourcing outreach, data tracking, and interview coordination logic.</p>
+                <h4>Impact</h4>
+                <p>Significantly automated repetitive top-of-funnel activities, allowing the recruitment team to handle higher req volume without increasing headcount, and driving a 125% increase in recruiter productivity metrics over time.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="Assests/Logo-Light.png" alt="DH Logo" class="logo-img">
+            <div class="footer-info">
+                <p><strong>Syed Danish Hasan</strong> - Bhopal, India</p>
+                <p><a href="mailto:syeddanishhasan@outlook.com" style="color: inherit; text-decoration: none;">syeddanishhasan@outlook.com</a> | +91 998 107 3077</p>
+            </div>
+            <div class="social-links">
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="https://github.com/dhasan111-hiringdock" target="_blank">GitHub</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+             <p>&copy; 2026 Syed Danish Hasan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS for Map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+    <!-- Animation Libraries (Lenis & GSAP) -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Link to external JS -->
+    <script src="script.js"></script>
+</body>
+</html>
