@@ -325,10 +325,11 @@ a {
 
 .navbar.scrolled {
     padding: 1rem 6vw;
-    background: rgba(10, 10, 10, 0.85); /* Dark translucent background */
+    background: rgba(245, 242, 237, 0.8); /* Light translucent — matches theme */
     backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-glass);
-    box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.06);
 }
 
 .logo-img {
