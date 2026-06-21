@@ -1236,7 +1236,9 @@ a {
 
 .testimonial-card {
     padding: 2.5rem;
-    background: rgba(20, 20, 20, 0.7); /* Dark frosted */
+    background: var(--bg-card); /* Light frosted glass — matches theme */
+    backdrop-filter: var(--blur-glass);
+    -webkit-backdrop-filter: var(--blur-glass);
     border: 1px solid var(--border-glass);
     border-radius: 24px;
     box-shadow: var(--shadow-soft);
@@ -1248,8 +1250,8 @@ a {
 
 .testimonial-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px -15px rgba(0,0,0,0.8), var(--neon-glow);
-    background: rgba(30, 30, 30, 0.9);
+    box-shadow: 0 20px 40px -15px rgba(0,0,0,0.15), var(--neon-glow);
+    background: var(--bg-card-hover);
     border-color: rgba(220, 38, 38, 0.3);
 }
 
