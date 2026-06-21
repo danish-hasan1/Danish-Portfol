@@ -1235,6 +1235,9 @@ a {
 }
 
 .testimonial-card {
+    flex: 0 0 420px;
+    width: 420px;
+    max-width: 85vw;
     padding: 2.5rem;
     background: var(--bg-card); /* Light frosted glass — matches theme */
     backdrop-filter: var(--blur-glass);
