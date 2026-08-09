@@ -140,7 +140,7 @@ function isLoggedIn() {
 }
 
 function login(email, password) {
-    if (email.trim().toLowerCase() === ADMIN_CREDENTIALS.email && password === ADMIN_CREDENTIALS.password) {
+    if (email.trim().toLowerCase() === ADMIN_CREDENTIALS.email && password.trim() === ADMIN_CREDENTIALS.password) {
         sessionStorage.setItem(BLOG_AUTH_KEY, 'true');
         return true;
     }
