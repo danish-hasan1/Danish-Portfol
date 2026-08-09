@@ -2,6 +2,30 @@
    Blog & Admin Styles — extends styles.css tokens (--bg-light, --accent-*, etc.)
    ========================================================================== */
 
+/* styles.css hides the native cursor (cursor:none) in favor of a JS-driven
+   custom cursor that only runs on index.html — restore the real cursor here. */
+.blog-body,
+.blog-body * {
+    cursor: auto !important;
+}
+
+.blog-body a,
+.blog-body button,
+.blog-body .btn,
+.blog-body .tag-pill,
+.blog-body .blog-card,
+.blog-body .btn-small,
+.blog-body .btn-logout,
+.blog-body select,
+.blog-body label {
+    cursor: pointer !important;
+}
+
+.blog-body input,
+.blog-body textarea {
+    cursor: text !important;
+}
+
 .blog-page-nav {
     display: flex;
     align-items: center;
