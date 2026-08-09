@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Danish Hasan</title>
+    <meta name="description" content="Articles on talent acquisition leadership, AI in recruitment, and operational excellence by Syed Danish Hasan.">
+
+    <link rel="icon" type="image/png" href="Assests/Logo.png">
+    <link rel="apple-touch-icon" href="Assests/Logo.png">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blog.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+</head>
+<body class="blog-body">
+
+    <nav class="blog-page-nav">
+        <a href="index.html"><img src="Assests/Logo.png" alt="DH Logo" class="logo-img"></a>
+        <ul class="blog-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="admin.html" class="blog-admin-link">Admin</a></li>
+        </ul>
+    </nav>
+
+    <main class="blog-main">
+
+        <!-- List View -->
+        <div id="blog-list-view">
+            <div class="blog-hero">
+                <h1>Insights &amp; Articles</h1>
+                <p>Notes on talent acquisition leadership, AI-enabled recruiting, and building operations that scale.</p>
+            </div>
+
+            <div class="blog-toolbar">
+                <input type="text" id="blog-search" class="blog-search" placeholder="Search articles...">
+                <div class="blog-tag-filters" id="blog-tag-filters"></div>
+            </div>
+
+            <div class="blog-grid" id="blog-grid"></div>
+            <div class="blog-empty" id="blog-empty" style="display:none;">No articles match your search.</div>
+        </div>
+
+        <!-- Detail View -->
+        <div id="blog-detail-view" style="display:none;">
+            <div class="blog-post-detail">
+                <a href="#/" class="blog-back-link">&larr; Back to all articles</a>
+                <img id="detail-cover" class="blog-post-cover" src="" alt="">
+                <h1 id="detail-title"></h1>
+                <div class="blog-post-meta">
+                    <span id="detail-author"></span>
+                    <span id="detail-date"></span>
+                </div>
+                <div class="blog-post-content" id="detail-content"></div>
+                <div class="blog-post-tags" id="detail-tags"></div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <img src="Assests/Logo-Light.png" alt="DH Logo" class="logo-img">
+            <div class="footer-info">
+                <p><strong>Syed Danish Hasan</strong> - Bhopal, India</p>
+                <p><a href="mailto:danish.hasan@outlook.com" style="color: inherit; text-decoration: none;">danish.hasan@outlook.com</a> | +91 998 107 3077</p>
+            </div>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/syeddanishhasan" target="_blank">LinkedIn</a>
+                <a href="https://github.com/danish-hasan1" target="_blank">GitHub</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+             <p>&copy; 2026 Syed Danish Hasan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="blog.js"></script>
+    <script>
+        let activeTag = null;
+
+        function renderTagFilters(posts) {
+            const container = document.getElementById('blog-tag-filters');
+            const tags = allTags(posts);
+            container.innerHTML = '';
+
+            const allBtn = document.createElement('button');
+            allBtn.className = 'tag-pill' + (activeTag === null ? ' active' : '');
+            allBtn.textContent = 'All';
+            allBtn.addEventListener('click', () => { activeTag = null; renderList(); });
+            container.appendChild(allBtn);
+
+            tags.forEach(tag => {
+                const btn = document.createElement('button');
+                btn.className = 'tag-pill' + (activeTag === tag ? ' active' : '');
+                btn.textContent = tag;
+                btn.addEventListener('click', () => { activeTag = tag; renderList(); });
+                container.appendChild(btn);
+            });
+        }
+
+        function renderList() {
+            const posts = getPosts().sort((a, b) => new Date(b.date) - new Date(a.date));
+            renderTagFilters(posts);
+
+            const query = document.getElementById('blog-search').value.trim().toLowerCase();
+            const filtered = posts.filter(p => {
+                const matchesTag = !activeTag || (p.tags || []).includes(activeTag);
+                const matchesQuery = !query ||
+                    p.title.toLowerCase().includes(query) ||
+                    p.excerpt.toLowerCase().includes(query) ||
+                    (p.tags || []).some(t => t.toLowerCase().includes(query));
+                return matchesTag && matchesQuery;
+            });
+
+            const grid = document.getElementById('blog-grid');
+            const empty = document.getElementById('blog-empty');
+            grid.innerHTML = '';
+
+            if (filtered.length === 0) {
+                empty.style.display = 'block';
+            } else {
+                empty.style.display = 'none';
+                filtered.forEach(post => {
+                    const card = document.createElement('a');
+                    card.href = `#/post/${post.slug}`;
+                    card.className = 'blog-card glass-card';
+                    card.innerHTML = `
+                        <img src="${post.cover}" alt="${post.title}" class="blog-card-img">
+                        <div class="blog-card-body">
+                            <div class="blog-card-meta"><span>${formatDate(post.date)}</span></div>
+                            <h3>${post.title}</h3>
+                            <p>${post.excerpt}</p>
+                            <div class="blog-card-tags">${(post.tags || []).map(t => `<span>${t}</span>`).join('')}</div>
+                            <span class="blog-card-readmore">Read Article &rarr;</span>
+                        </div>`;
+                    grid.appendChild(card);
+                });
+            }
+        }
+
+        function renderDetail(slug) {
+            const post = getPosts().find(p => p.slug === slug);
+            if (!post) { window.location.hash = '#/'; return; }
+
+            document.getElementById('detail-cover').src = post.cover;
+            document.getElementById('detail-cover').alt = post.title;
+            document.getElementById('detail-title').textContent = post.title;
+            document.getElementById('detail-author').textContent = post.author;
+            document.getElementById('detail-date').textContent = formatDate(post.date);
+            document.getElementById('detail-content').innerHTML = mdToHtml(post.content);
+            document.getElementById('detail-tags').innerHTML = (post.tags || []).map(t => `<span>${t}</span>`).join('');
+
+            document.title = `${post.title} - Danish Hasan`;
+            window.scrollTo(0, 0);
+        }
+
+        function route() {
+            const hash = window.location.hash;
+            const match = hash.match(/^#\/post\/(.+)$/);
+
+            if (match) {
+                document.getElementById('blog-list-view').style.display = 'none';
+                document.getElementById('blog-detail-view').style.display = 'block';
+                renderDetail(decodeURIComponent(match[1]));
+            } else {
+                document.title = 'Blog - Danish Hasan';
+                document.getElementById('blog-list-view').style.display = 'block';
+                document.getElementById('blog-detail-view').style.display = 'none';
+                renderList();
+            }
+        }
+
+        document.getElementById('blog-search').addEventListener('input', renderList);
+        window.addEventListener('hashchange', route);
+        document.addEventListener('DOMContentLoaded', route);
+    </script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Admin - Danish Hasan</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/png" href="Assests/Logo.png">
+    <link rel="apple-touch-icon" href="Assests/Logo.png">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blog.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+</head>
+<body class="blog-body">
+
+    <nav class="blog-page-nav">
+        <a href="index.html"><img src="Assests/Logo.png" alt="DH Logo" class="logo-img"></a>
+        <ul class="blog-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+    </nav>
+
+    <main class="blog-main">
+
+        <!-- Login -->
+        <div id="admin-login" class="admin-shell">
+            <div class="admin-login-card glass-card">
+                <h1>Admin Login</h1>
+                <p class="subtitle">Sign in to manage blog articles.</p>
+                <div class="admin-error" id="login-error">Invalid email or password.</div>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" placeholder="you@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Log In</button>
+                </form>
+                <p class="admin-hint">Demo credentials — danish@gmail.com / pw-blog.danish123</p>
+            </div>
+        </div>
+
+        <!-- Dashboard -->
+        <div id="admin-dashboard" class="admin-dashboard">
+            <div class="admin-header">
+                <h1>Blog Dashboard</h1>
+                <button class="btn-logout" id="logout-btn">Log Out</button>
+            </div>
+
+            <div class="admin-layout">
+                <div class="admin-form-card glass-card">
+                    <h2 id="form-heading">New Article</h2>
+                    <form id="post-form">
+                        <input type="hidden" id="post-id">
+                        <div class="form-group">
+                            <label for="post-title">Title</label>
+                            <input type="text" id="post-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="post-excerpt">Excerpt</label>
+                            <input type="text" id="post-excerpt" placeholder="Short summary shown on the blog card" required>
+                        </div>
+                        <div class="admin-form-row">
+                            <div class="form-group">
+                                <label for="post-cover">Cover Image</label>
+                                <select id="post-cover">
+                                    <option value="Assests/Desk.png">Desk</option>
+                                    <option value="Assests/Business.png">Business</option>
+                                    <option value="Assests/Nego.png">Negotiation</option>
+                                    <option value="Assests/Hero.png">Hero</option>
+                                    <option value="Assests/Casual.png">Casual</option>
+                                    <option value="Assests/Official.png">Official</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="post-date">Date</label>
+                                <input type="date" id="post-date" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="post-tags">Tags (comma separated)</label>
+                            <input type="text" id="post-tags" placeholder="Leadership, AI, Recruitment">
+                        </div>
+                        <div class="form-group">
+                            <label for="post-content">Content (supports ## headings, **bold**, *italic*, - lists, &gt; quotes)</label>
+                            <textarea id="post-content" required></textarea>
+                        </div>
+                        <div class="admin-form-actions">
+                            <button type="submit" class="btn btn-primary" id="submit-btn">Publish Article</button>
+                            <button type="button" class="btn btn-secondary" id="cancel-edit-btn" style="display:none;">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="admin-list-card glass-card">
+                    <h2>Published Articles</h2>
+                    <div id="admin-post-list"></div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <div class="admin-toast" id="admin-toast"></div>
+
+    <script src="blog.js"></script>
+    <script>
+        const loginView = document.getElementById('admin-login');
+        const dashboardView = document.getElementById('admin-dashboard');
+        const loginForm = document.getElementById('login-form');
+        const loginError = document.getElementById('login-error');
+        const postForm = document.getElementById('post-form');
+        const cancelEditBtn = document.getElementById('cancel-edit-btn');
+        const submitBtn = document.getElementById('submit-btn');
+        const formHeading = document.getElementById('form-heading');
+
+        function showToast(message) {
+            const toast = document.getElementById('admin-toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2200);
+        }
+
+        function checkAuth() {
+            if (isLoggedIn()) {
+                loginView.style.display = 'none';
+                dashboardView.classList.add('active');
+                renderPostList();
+            } else {
+                loginView.style.display = 'block';
+                dashboardView.classList.remove('active');
+            }
+        }
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            if (login(email, password)) {
+                loginError.classList.remove('show');
+                loginForm.reset();
+                checkAuth();
+            } else {
+                loginError.classList.add('show');
+            }
+        });
+
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            logout();
+            checkAuth();
+        });
+
+        function resetForm() {
+            postForm.reset();
+            document.getElementById('post-id').value = '';
+            document.getElementById('post-date').value = new Date().toISOString().slice(0, 10);
+            formHeading.textContent = 'New Article';
+            submitBtn.textContent = 'Publish Article';
+            cancelEditBtn.style.display = 'none';
+        }
+
+        cancelEditBtn.addEventListener('click', resetForm);
+
+        postForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const id = document.getElementById('post-id').value;
+            const title = document.getElementById('post-title').value.trim();
+            const tags = document.getElementById('post-tags').value.split(',').map(t => t.trim()).filter(Boolean);
+
+            const posts = getPosts();
+
+            if (id) {
+                const idx = posts.findIndex(p => String(p.id) === String(id));
+                if (idx !== -1) {
+                    posts[idx] = {
+                        ...posts[idx],
+                        title,
+                        excerpt: document.getElementById('post-excerpt').value.trim(),
+                        cover: document.getElementById('post-cover').value,
+                        date: document.getElementById('post-date').value,
+                        tags,
+                        content: document.getElementById('post-content').value
+                    };
+                }
+                showToast('Article updated.');
+            } else {
+                let slug = slugify(title);
+                if (posts.some(p => p.slug === slug)) slug = `${slug}-${Date.now()}`;
+
+                posts.push({
+                    id: Date.now(),
+                    slug,
+                    title,
+                    excerpt: document.getElementById('post-excerpt').value.trim(),
+                    cover: document.getElementById('post-cover').value,
+                    date: document.getElementById('post-date').value,
+                    tags,
+                    author: 'Syed Danish Hasan',
+                    content: document.getElementById('post-content').value
+                });
+                showToast('Article published.');
+            }
+
+            savePosts(posts);
+            resetForm();
+            renderPostList();
+        });
+
+        function editPost(id) {
+            const post = getPosts().find(p => String(p.id) === String(id));
+            if (!post) return;
+
+            document.getElementById('post-id').value = post.id;
+            document.getElementById('post-title').value = post.title;
+            document.getElementById('post-excerpt').value = post.excerpt;
+            document.getElementById('post-cover').value = post.cover;
+            document.getElementById('post-date').value = post.date;
+            document.getElementById('post-tags').value = (post.tags || []).join(', ');
+            document.getElementById('post-content').value = post.content;
+
+            formHeading.textContent = 'Edit Article';
+            submitBtn.textContent = 'Save Changes';
+            cancelEditBtn.style.display = 'inline-flex';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function deletePost(id) {
+            if (!confirm('Delete this article? This cannot be undone.')) return;
+            const posts = getPosts().filter(p => String(p.id) !== String(id));
+            savePosts(posts);
+            showToast('Article deleted.');
+            renderPostList();
+        }
+
+        function renderPostList() {
+            const posts = getPosts().sort((a, b) => new Date(b.date) - new Date(a.date));
+            const list = document.getElementById('admin-post-list');
+            list.innerHTML = '';
+
+            if (posts.length === 0) {
+                list.innerHTML = '<p class="admin-empty-list">No articles yet. Publish your first one.</p>';
+                return;
+            }
+
+            posts.forEach(post => {
+                const item = document.createElement('div');
+                item.className = 'post-list-item';
+                item.innerHTML = `
+                    <div class="post-list-info">
+                        <h4>${post.title}</h4>
+                        <span>${formatDate(post.date)}</span>
+                    </div>
+                    <div class="post-list-actions">
+                        <button class="btn-small btn-edit" data-id="${post.id}">Edit</button>
+                        <button class="btn-small btn-delete" data-id="${post.id}">Delete</button>
+                    </div>`;
+                list.appendChild(item);
+            });
+
+            list.querySelectorAll('.btn-edit').forEach(btn => btn.addEventListener('click', () => editPost(btn.dataset.id)));
+            list.querySelectorAll('.btn-delete').forEach(btn => btn.addEventListener('click', () => deletePost(btn.dataset.id)));
+        }
+
+        resetForm();
+        checkAuth();
+    </script>
+</body>
+</html>
