@@ -41,7 +41,10 @@
                     </div>
                     <div class="form-group">
                         <label for="login-password">Password</label>
-                        <input type="password" id="login-password" placeholder="Password" autocomplete="current-password" autocapitalize="off" autocorrect="off" spellcheck="false" required>
+                        <div class="password-field-wrap">
+                            <input type="password" id="login-password" placeholder="Password" autocomplete="current-password" autocapitalize="off" autocorrect="off" spellcheck="false" required>
+                            <button type="button" id="toggle-password" class="toggle-password-btn" aria-label="Show password">Show</button>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Log In</button>
                 </form>
@@ -139,6 +142,13 @@
                 dashboardView.classList.remove('active');
             }
         }
+
+        document.getElementById('toggle-password').addEventListener('click', (e) => {
+            const pwField = document.getElementById('login-password');
+            const showing = pwField.type === 'text';
+            pwField.type = showing ? 'password' : 'text';
+            e.currentTarget.textContent = showing ? 'Show' : 'Hide';
+        });
 
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
