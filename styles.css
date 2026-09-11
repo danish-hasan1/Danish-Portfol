@@ -451,6 +451,22 @@ a {
     justify-content: center;
 }
 
+.hero-eyebrow {
+    display: inline-block;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-primary);
+    background: rgba(220, 38, 38, 0.08);
+    border: 1px solid rgba(220, 38, 38, 0.25);
+    padding: 0.5rem 1.1rem;
+    border-radius: 30px;
+    margin-bottom: 1.25rem;
+    width: fit-content;
+}
+
 .huge-display-title {
     font-size: clamp(3rem, 6.5vw, 7.5rem); /* Reduced to make more space */
     font-weight: 900;
