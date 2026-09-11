@@ -275,7 +275,9 @@ document.addEventListener('DOMContentLoaded', () => {
             { name: "Oman", coords: [23.5859, 58.4059], desc: "Consultant Placements" },
             { name: "Riyadh, Saudi Arabia", coords: [24.7136, 46.6753], desc: "Consultant Placements" },
             { name: "Nigeria", coords: [9.0820, 8.6753], desc: "Consultant Placements" },
-            { name: "India", coords: [23.2599, 77.4126], desc: "Delivery Hub & Operations" }
+            { name: "India", coords: [23.2599, 77.4126], desc: "Delivery Hub & Operations" },
+            { name: "United States", coords: [38.9072, -77.0369], desc: "Consultant Placements" },
+            { name: "Mexico", coords: [19.4326, -99.1332], desc: "Consultant Placements" }
         ];
 
         // Custom marker style to match theme
