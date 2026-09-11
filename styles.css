@@ -1490,6 +1490,11 @@ a {
     z-index: 2 !important;
 }
 
+/* Recolor the free OSM raster tiles to match the site's dark theme */
+#world-map .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) brightness(0.95) contrast(0.9) saturate(0.3);
+}
+
 /* =========================================================================
    12. Utilities & Animations
    ========================================================================= */
