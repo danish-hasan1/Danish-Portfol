@@ -1459,6 +1459,12 @@ a {
     font-size: 1.4rem;
     top: -2px;
 }
+
+.exp-role-block + .exp-role-block {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+}
 /* =========================================================================
    11. Global Footprint (Map)
    ========================================================================= */
